@@ -55,7 +55,7 @@ const Home = () => {
         <br />
          <span className='text-slate-500'>and Share the Experience</span></h1>
         <div className='text-gray-400 text-xs sm:text-sm'>
-          Grey Estate is the best place to find yout next Home
+          Grey Estate is the best place to find your next Home
         </div>
         <Link to={'/search'} className='text-xs sm:text-lg text-blue-600 font-bold hover:underline'>
           Lets Get Started
