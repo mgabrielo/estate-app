@@ -13,6 +13,7 @@ import Listing from './pages/Listing'
 import Search from './pages/Search'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './components/Footer'
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
         <Route path='/update-listing/:id' element={<UpdateListing/>}/>
       </Route>
     </Routes>
+    <Footer/>
     </BrowserRouter>
   )
 }

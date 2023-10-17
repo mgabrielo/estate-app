@@ -26,7 +26,7 @@ const Home = () => {
 
     const fetchRentListing=async()=>{
       try {
-        const res= await fetch(`/api/listing/get?rent=true&limit=4`)
+        const res= await fetch(`/api/listing/get?type=rent&limit=4`)
         const data = await res.json();
         setRentListings(data)
         fetchSaleListing()
@@ -37,7 +37,7 @@ const Home = () => {
 
     const fetchSaleListing =async()=>{
       try {
-        const res= await fetch(`/api/listing/get?sale=true&limit=4`)
+        const res= await fetch(`/api/listing/get?type=sale&limit=4`)
         const data = await res.json();
         setSaleListings(data)
         
@@ -57,7 +57,7 @@ const Home = () => {
         <div className='text-gray-400 text-xs sm:text-sm'>
           Grey Estate is the best place to find your next Home
         </div>
-        <Link to={'/search'} className='text-xs sm:text-lg text-blue-600 font-bold hover:underline'>
+        <Link to={'/search'} className='text-xs sm:text-lg text-red-600 font-bold hover:underline'>
           Lets Get Started
         </Link>
       </div>
@@ -73,7 +73,7 @@ const Home = () => {
       }
       </Swiper>
 
-      <div className='max-w-6xl mx-auto p-3 flex flex-col gap-7 my-10'>
+      <div className='max-w-7xl mx-auto p-2 flex flex-col gap-7 my-10'>
         {
           offerListings && offerListings.length > 0 && (
             <div className=''>
@@ -99,7 +99,7 @@ const Home = () => {
             <div className=''>
                 <div className='my-3'>
                   <h2 className='text-2xl font-semibold text-slate-600'>Recent Rents</h2>
-                  <Link className='text-sm text-blue-600 hover:underline' to={'/search?offer=true'}>
+                  <Link className='text-sm text-blue-600 hover:underline' to={'/search?type=rent'}>
                     Show More Rents
                   </Link>
                 </div>
@@ -119,7 +119,7 @@ const Home = () => {
             <div className=''>
                 <div className='my-3'>
                   <h2 className='text-2xl font-semibold text-slate-600'>Recent Sales</h2>
-                  <Link className='text-sm text-blue-600 hover:underline' to={'/search?offer=true'}>
+                  <Link className='text-sm text-blue-600 hover:underline' to={'/search?type=sale'}>
                     Show More Sales
                   </Link>
                 </div>

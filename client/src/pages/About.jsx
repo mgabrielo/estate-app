@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div className='flex flex-col p-8 mx-auto'>
+    <div className='flex flex-col min-h-screen p-8 mx-auto'>
       <h1 className='text-slate-800 font-bold mb-3'>About GreyEstate</h1>
       <p className='text-slate-600 mb-3 font-semibold italic'>
         Estate Planning For Grey Estate teaches you the ins and outs of estate planning. Its all about drafting wills, 

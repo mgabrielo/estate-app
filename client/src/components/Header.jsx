@@ -32,8 +32,8 @@ const Header = () => {
                     <span className='text-red-700'>Estate</span>
                 </h1>
             </Link>
-            <form onSubmit={handleSubmit} className='bg-slate-100 p-3 rounded-lg flex items-center'>
-                <input type="text" onChange={(e)=>setSearchTerm(e.target.value)} value={searchTerm} className='bg-transparent focus:outline-none w-24 sm:w-64' placeholder='Search...' />
+            <form onSubmit={handleSubmit} className='bg-slate-100 p-3  w-[220px] sm:w-[400px] rounded-lg flex items-center justify-between'>
+                <input type="text" onChange={(e)=>setSearchTerm(e.target.value)} value={searchTerm} className='bg-transparent focus:outline-none w-full mr-2' placeholder='Search...' />
                 <button className=''>
                 <FaSearch className='text-slate-600'/>
                 </button>

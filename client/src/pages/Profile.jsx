@@ -76,6 +76,7 @@ const Profile = () => {
                 }
                 dispatch(updateUserSuccess(data))
                 setUpdateSuccess(true)
+                toast.success('Update Succesful')
             })
         } catch (error) {
             dispatch(error.message)
@@ -113,6 +114,7 @@ const Profile = () => {
                 return
             }
             dispatch(signOutUserSuccess(data))
+            toast.success('User Signed Out Successfully')
         } catch (error) {
             dispatch(signOutUserFailure(error.message))
         }
@@ -220,12 +222,12 @@ const Profile = () => {
             </Link>
         </form>
         <div className='flex justify-between mt-5'>
-            <span className='text-red-700 cursor-pointer' onClick={handleDeleteUser}>Delete Account</span>
-            <span className='text-red-700 cursor-pointer' onClick={handleSignOut}>Sign Out</span>
+            <span className='text-red-700 cursor-pointer hover:underline' onClick={handleDeleteUser}>Delete Account</span>
+            <span className='text-red-700 cursor-pointer hover:underline' onClick={handleSignOut}>Sign Out</span>
         </div>
         <p className='text-red-700 mt-3 text-center'>{error ? error : ''}</p>
         <p className='text-green-700 mt-3 text-center'>{updateSuccess ? 'User Updated Successfully' : ''}</p>
-        <button className='text-green-700 w-full' onClick={handleShowListings}>Show Listings</button>
+        <button className='text-green-700 w-full font-bold hover:underline' onClick={handleShowListings}>Show Listings</button>
     
         <p className='text-center w-full mt-3'>{showListingsError ? 'Error Showing Lisitngs': ''}</p>
         

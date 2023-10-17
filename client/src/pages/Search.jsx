@@ -17,7 +17,7 @@ const Search = () => {
     const [listings, setListings]= useState([]);
     const [showMore, setShowMore] = useState(false)
     // console.log('sideBarData:', sideBarData)
-    console.log('get-listing-data:', listings)
+    // console.log('get-listing-data:', listings)
     useEffect(()=>{
         const urlParams = new URLSearchParams(location.search)
         const searchTermUrl = urlParams.get('searchTerm');

@@ -4,6 +4,7 @@ import { app } from '../firebase';
 import { useDispatch } from 'react-redux';
 import { signInSuccess } from '../redux/user/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const OAuth = () => {
     const navigate = useNavigate()
@@ -26,7 +27,7 @@ const OAuth = () => {
                 })
             }).then(async (res)=>{
                 const data = await res.json()
-                console.log(data)
+                // console.log(data)
                 dispatch(signInSuccess(data))
                 navigate('/')
             }).catch((err)=>{
@@ -35,6 +36,7 @@ const OAuth = () => {
 
         } catch (error) {
             console.log('could not sign in with google')
+            toast.error('could not sign in with google')
         }
     }
   return (
