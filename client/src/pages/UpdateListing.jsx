@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { app } from '../firebase';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const UpdateListing = () => {
     const {currentUser} = useSelector((state)=> state.user);
@@ -37,6 +38,7 @@ const UpdateListing = () => {
             const data = await res.json();
             if(data.success === false){
                 console.log(data.message)
+                toast.error(data.message);
                 return;
             }
             setFormData(data)
@@ -289,7 +291,10 @@ const UpdateListing = () => {
                         className='p-3 text-green-700 border border-green-700 rounded uppercase hover:shadow-lg disabled:opacity-80'
                         onClick={handleImageSubmit}
                      >
-                        { uploading ? 'Uploading...': 'Upload'}
+                        { uploading ?
+                         'Uploading...'
+                         
+                         : 'Upload'}
                     </button>
                 </div>
             <p className='text-red-700 text-sm'>{imageUploadError && imageUploadError}</p>

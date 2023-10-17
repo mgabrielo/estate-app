@@ -27,6 +27,12 @@ const Profile = () => {
         }
     },[file])
 
+    useEffect(()=>{
+        if(filePercent == 100 && !fileUploadError ){
+            toast.success('Upload Successful')
+        }
+    }, [filePercent, fileUploadError])
+
     const handleFileUpload=(file)=>{
         const storage = getStorage(app);
         const fileName = new Date().getTime() + file.name;
@@ -65,6 +71,7 @@ const Profile = () => {
                 if(data.success == false){
                     dispatch(updateUserFailure(data.message))
                     setUpdateSuccess(false)
+                    toast(data.message);
                     return;
                 }
                 dispatch(updateUserSuccess(data))
@@ -85,6 +92,7 @@ const Profile = () => {
             const data = await res.json();
             if(data.success == false){
                 dispatch(deleteUserFailure(data.message))
+                toast.error(data.message)
                 return
             }
             dispatch(deleteUserSuccess(data))
@@ -142,6 +150,7 @@ const Profile = () => {
             const data= await res.json()
             if(data.success === false){
                 console.log(data.message)
+                toast.error(data.message)
                 return ;
             } 
 
@@ -171,7 +180,7 @@ const Profile = () => {
                     ): filePercent > 0 && filePercent < 100 ?(
                         <span className='text-slate-700'>{`Image Uploading at ${filePercent}%`}</span>
                     ): filePercent == 100 && !fileUploadError ?(
-                        <span className='text-green-700'>Image Upload Successful</span>
+                        <span className='text-green-700'></span>
                     ):(
                         ''
                     )

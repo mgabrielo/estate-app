@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link , useNavigate} from 'react-router-dom'
 import OAuth from '../components/OAuth'
+import { toast } from 'react-toastify'
 
 const SignUp = () => {
   const navigate = useNavigate()
@@ -28,6 +29,7 @@ const SignUp = () => {
     if(data.success === false){
       setError(data.message)
       setLoading(false)
+      toast.error('Invalid Sign Up or User Already Exist')
       return;
     }
     setLoading(false)
@@ -59,9 +61,9 @@ const SignUp = () => {
           <span className='text-blue-700'>Sign In</span>
         </Link>
       </div>
-      {error &&
+      {/* {error &&
         <p className='text-red-500'>{error}</p>
-      }
+      } */}
     </div>
   )
 }

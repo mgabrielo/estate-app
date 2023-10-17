@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { app } from '../firebase';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const CreateListing = () => {
     const {currentUser} = useSelector((state)=> state.user);
@@ -126,6 +127,8 @@ const CreateListing = () => {
             setLoading(false);
             if(data.success == false){
                 setError(data.message)
+                toast.error(data.message);
+                return;
             }
             // console.log('listing-data:', data)
             navigate(`/listing/${data._id}`)

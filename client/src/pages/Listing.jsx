@@ -16,6 +16,7 @@ import {
     FaShare,
   } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 const Listing = () => {
     SwiperCore.use([Navigation])
     const { currentUser } = useSelector((state) => state.user);
@@ -36,7 +37,8 @@ const Listing = () => {
                 if(data.success === false){
                     setLoading(false)
                     setError(true)
-                    console.log(data.message)
+                    toast.error(data.message)
+                    // console.log(data.message)
                     return;
                 }    
                 setListing(data)

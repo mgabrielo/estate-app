@@ -64,7 +64,7 @@ const Home = () => {
       <Swiper navigation>
       {
         offerListings && offerListings.length > 0 && offerListings.map((offerListing)=>(
-          <SwiperSlide>
+          <SwiperSlide key={offerListing._id}>
             <div className='h-[500px]' key={offerListing._id} style={{background:`url(${offerListing.imageUrls[0]}) center no-repeat`, backgroundSize:'cover'}}>
 
             </div>
