@@ -74,26 +74,7 @@ const Home = () => {
       </Swiper>
 
       <div className='max-w-7xl mx-auto p-2 flex flex-col gap-7 my-10'>
-        {
-          offerListings && offerListings.length > 0 && (
-            <div className=''>
-                <div className='my-3'>
-                  <h2 className='text-2xl font-semibold text-slate-600'>Recent Offers</h2>
-                  <Link className='text-sm text-blue-600 hover:underline' to={'/search?offer=true'}>
-                    Show More Offers
-                  </Link>
-                </div>
-                <div className='flex flex-wrap gap-4'>
-                  {
-                    offerListings.map((offerListing)=>(
-
-                      <ListingItem listing={offerListing} key={offerListing._id}/>
-                    ))
-                  }
-                </div>
-            </div>
-          ) 
-        }
+        
         {
           rentListings && rentListings.length > 0 && (
             <div className=''>
@@ -128,6 +109,26 @@ const Home = () => {
                     saleListings.map((saleListing)=>(
 
                       <ListingItem listing={saleListing} key={saleListing._id}/>
+                    ))
+                  }
+                </div>
+            </div>
+          ) 
+        }
+        {
+          offerListings && offerListings.length > 0 && (
+            <div className=''>
+                <div className='my-3'>
+                  <h2 className='text-2xl font-semibold text-slate-600'>Recent Offers</h2>
+                  <Link className='text-sm text-blue-600 hover:underline' to={'/search?offer=true'}>
+                    Show More Offers
+                  </Link>
+                </div>
+                <div className='flex flex-wrap gap-4'>
+                  {
+                    offerListings.map((offerListing)=>(
+
+                      <ListingItem listing={offerListing} key={offerListing._id}/>
                     ))
                   }
                 </div>

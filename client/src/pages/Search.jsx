@@ -181,13 +181,13 @@ const Search = () => {
                         <ListingItem key = {listing._id} listing = {listing} />
                     ))
                 }
-                {/* {
+                {
                     showMore && (
                         <button className='text-green-700 hover:underline p-5 w-full text-center' onClick={showMoreResults}>
                             Show More Results
                         </button>
                     )
-                } */}
+                }
             </div>
         </div>
     </div>
